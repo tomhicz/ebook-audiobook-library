@@ -1,0 +1,23 @@
+{
+  "name": "ebook-audiobook-library",
+  "version": "0.0.1",
+  "description": "Track ebooks and audiobooks across services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomhicz/ebook-audiobook-library.git"
+  },
+  "author": "tomhicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomhicz/ebook-audiobook-library/issues"
+  },
+  "homepage": "https://github.com/tomhicz/ebook-audiobook-library#readme",
+  "dependencies": {
+    "apollo-server": "^3.3.0",
+    "graphql": "^15.6.0"
+  }
+}
