@@ -29,5 +29,19 @@ export const resolvers = {
         return false;
       }
     },
+    updateBook: async (_: any, args: any) => {
+      const { id, ...update } = args;
+      try {
+        await Book.createQueryBuilder()
+          .update(Book)
+          .set(update)
+          .where("id = :id", { id: id })
+          .execute();
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
   },
 };
