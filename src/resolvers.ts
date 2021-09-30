@@ -43,5 +43,18 @@ export const resolvers = {
         return false;
       }
     },
+    deleteBook: async (_: any, args: any) => {
+      try {
+        const result = await Book.delete(args.id);
+        if (result.affected === 0) {
+          return false;
+        }
+        //return Promise.resolve(await Book.delete(args.id));
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
   },
 };
