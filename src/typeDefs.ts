@@ -5,6 +5,10 @@ export const typeDefs = gql`
   type Query {
     getBook(id: Int!): Book
     books: [Book]
+    getAuthor(id: Int!): Author
+    authors: [Author]
+    getService(id: Int!): Service
+    services: [Service]
   }
   type Mutation {
     addBook(
@@ -23,6 +27,19 @@ export const typeDefs = gql`
       read: Boolean
     ): Boolean!
     deleteBook(id: Int!): Boolean!
+
+    addAuthor(first_name: String!, last_name: String): Boolean!
+    updateAuthor(id: Int!, first_name: String, last_name: String): Boolean!
+    deleteAuthor(id: Int!): Boolean!
+
+    addService(name: String!, mainurl: String, baseurl: String): Boolean!
+    updateService(
+      id: Int!
+      name: String
+      mainurl: String
+      baseurl: String
+    ): Boolean!
+    deleteService(id: Int!): Boolean!
   }
 
   type Book {
