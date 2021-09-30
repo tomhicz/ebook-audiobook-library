@@ -14,11 +14,14 @@ export const resolvers = {
   },
   Mutation: {
     addBook: async (_: any, args: any) => {
-      const { title, author } = args;
+      const { title, author, imageurl, isbn, read } = args;
       try {
         const book = Book.create({
           title,
           author,
+          imageurl,
+          isbn,
+          read,
         });
 
         await book.save();

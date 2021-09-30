@@ -14,7 +14,7 @@ export class Book extends BaseEntity {
   @Column({
     nullable: true,
   })
-  imageLink: string;
+  imageurl: string;
 
   @Column({
     nullable: true,

@@ -7,13 +7,41 @@ export const typeDefs = gql`
     books: [Book]
   }
   type Mutation {
-    addBook(title: String!, author: String!): Boolean!
-    updateBook(id: Int!, title: String, author: String): Boolean!
+    addBook(
+      title: String!
+      author: String!
+      imageurl: String
+      isbn: String
+      read: Boolean
+    ): Boolean!
+    updateBook(
+      id: Int!
+      title: String
+      author: String
+      imageurl: String
+      isbn: String
+      read: Boolean
+    ): Boolean!
     deleteBook(id: Int!): Boolean!
   }
+
   type Book {
     id: Int!
     title: String!
     author: String!
+    imageurl: String
+    isbn: String
+    read: Boolean!
+  }
+  type Author {
+    id: Int!
+    first_name: String!
+    last_name: String
+  }
+  type Service {
+    id: Int!
+    name: String!
+    mainurl: String
+    baseurl: String
   }
 `;
