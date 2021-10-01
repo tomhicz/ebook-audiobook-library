@@ -16,6 +16,8 @@ export const typeDefs = gql`
       authors: [InputAuthor]!
       imageurl: String
       isbn: String
+      services: [InputService]!
+      booktype: InputBookType!
       read: Boolean
     ): Boolean!
     updateBook(
@@ -24,6 +26,8 @@ export const typeDefs = gql`
       authors: [InputAuthor]
       imageurl: String
       isbn: String
+      services: [InputService]
+      booktype: InputBookType
       read: Boolean
     ): Boolean!
     deleteBook(id: Int!): Boolean!
@@ -48,6 +52,8 @@ export const typeDefs = gql`
     authors: [Author]!
     imageurl: String
     isbn: String
+    services: [Service]!
+    booktype: BookType!
     read: Boolean!
   }
   type Author {
@@ -61,9 +67,21 @@ export const typeDefs = gql`
     mainurl: String
     baseurl: String
   }
+  type BookType {
+    id: Int!
+    name: String!
+  }
 
   input InputAuthor {
     first_name: String!
     last_name: String
+  }
+  input InputService {
+    name: String!
+    mainurl: String
+    baseurl: String
+  }
+  input InputBookType {
+    name: String!
   }
 `;

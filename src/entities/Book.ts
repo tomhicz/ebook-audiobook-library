@@ -4,9 +4,12 @@ import {
   Column,
   BaseEntity,
   ManyToMany,
+  ManyToOne,
   JoinTable,
 } from "typeorm";
 import { Author } from "./Author";
+import { Service } from "./Service";
+import { BookType } from "./BookType";
 
 @Entity()
 export class Book extends BaseEntity {
@@ -32,11 +35,16 @@ export class Book extends BaseEntity {
   })
   isbn: string;
 
-  // @Column()
-  // services: [];
+  @ManyToMany(() => Service, {
+    cascade: true,
+  })
+  @JoinTable()
+  services: [];
 
-  // @Column()
-  // types: []];
+  @ManyToOne(() => BookType, {
+    cascade: true,
+  })
+  booktype: BookType;
 
   // @Column()
   // genres: []];

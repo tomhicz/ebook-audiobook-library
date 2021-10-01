@@ -1,6 +1,7 @@
 import { Book } from "./entities/Book";
 import { Author } from "./entities/Author";
 import { Service } from "./entities/Service";
+import { BookType } from "./entities/BookType";
 
 // Provide resolver functions for your schema fields
 export const resolvers = {
@@ -9,11 +10,16 @@ export const resolvers = {
     getBook: async (_: any, args: any) => {
       const { id } = args;
 
-      return await Book.findOne({ where: { id: id }, relations: ["authors"] });
+      return await Book.findOne({
+        where: { id: id },
+        relations: ["authors", "services", "booktype"],
+      });
     },
     books: async (_: any, args: any) => {
       return await Book.createQueryBuilder("thisBook")
         .leftJoinAndSelect("thisBook.authors", "authors")
+        .leftJoinAndSelect("thisBook.services", "services")
+        .leftJoinAndSelect("thisBook.booktype", "booktype")
         .getMany();
     },
     //Authors
@@ -38,13 +44,15 @@ export const resolvers = {
   Mutation: {
     //Books
     addBook: async (_: any, args: any) => {
-      const { title, authors, imageurl, isbn, read } = args;
+      const { title, authors, imageurl, isbn, services, booktype, read } = args;
       try {
         const book = Book.create({
           title,
           authors,
           imageurl,
           isbn,
+          services,
+          booktype,
           read,
         });
 
