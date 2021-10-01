@@ -13,7 +13,7 @@ export const typeDefs = gql`
   type Mutation {
     addBook(
       title: String!
-      author: String!
+      authors: [InputAuthor]!
       imageurl: String
       isbn: String
       read: Boolean
@@ -21,7 +21,7 @@ export const typeDefs = gql`
     updateBook(
       id: Int!
       title: String
-      author: String
+      authors: [InputAuthor]
       imageurl: String
       isbn: String
       read: Boolean
@@ -45,7 +45,7 @@ export const typeDefs = gql`
   type Book {
     id: Int!
     title: String!
-    author: String!
+    authors: [Author]!
     imageurl: String
     isbn: String
     read: Boolean!
@@ -60,5 +60,10 @@ export const typeDefs = gql`
     name: String!
     mainurl: String
     baseurl: String
+  }
+
+  input InputAuthor {
+    first_name: String!
+    last_name: String
   }
 `;

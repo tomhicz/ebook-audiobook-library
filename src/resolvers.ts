@@ -9,10 +9,12 @@ export const resolvers = {
     getBook: async (_: any, args: any) => {
       const { id } = args;
 
-      return await Book.findOne({ where: { id: id } });
+      return await Book.findOne({ where: { id: id }, relations: ["authors"] });
     },
     books: async (_: any, args: any) => {
-      return await Book.createQueryBuilder("thisBook").getMany();
+      return await Book.createQueryBuilder("thisBook")
+        .leftJoinAndSelect("thisBook.authors", "authors")
+        .getMany();
     },
     //Authors
     getAuthor: async (_: any, args: any) => {
@@ -36,11 +38,11 @@ export const resolvers = {
   Mutation: {
     //Books
     addBook: async (_: any, args: any) => {
-      const { title, author, imageurl, isbn, read } = args;
+      const { title, authors, imageurl, isbn, read } = args;
       try {
         const book = Book.create({
           title,
-          author,
+          authors,
           imageurl,
           isbn,
           read,
