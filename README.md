@@ -42,36 +42,50 @@ Access the Apollo GraphQL interface at the address given. (Usually [http://local
 
 ## API:
 
+### Data structure
+
+**Book**
+`{ title: "Lord of the Rings", authors: [ { id: 1, first_name: "JRR", last_name: "Tolkien" } ], imageurl: "qwerty.com/img.png", isbn: "1233-456-7890", services: [ { id: 2, name: "audible", mainurl: "audible.co.uk", baseurl: "audible.co.uk/library/", }, ], booktype: { name: "audiobook" }, read: true, },`
+
+**Service**
+`{ id: 2, name: "audible", mainurl: "audible.co.uk", baseurl: "audible.co.uk/library/", },`
+
+**Author**
+`{ id: 1, first_name: "JRR", last_name: "Tolkien" }`
+
 ### Query
 
-`getBook(…):Book`
+`getBook(id):Book`
 
 `books:[Book]`
 
-`getAuthor(…):Author`
+`getAuthor(id):Author`
 
 `authors:[Author]`
 
-`getService(…):Service`
+`getService(id):Service`
 
 `services:[Service]`
 
 ### Mutation
 
-`addBook(…):Boolean!`
+`addBook(Book):Boolean!`
 
-`updateBook(…):Boolean!`
+`updateBook(id,Book):Boolean!`
 
-`deleteBook(…):Boolean!`
+`deleteBook(id):Boolean!`
 
-`addAuthor(…):Boolean!`
+`addAuthor(Author):Boolean!`
 
-`updateAuthor(…):Boolean!`
+`updateAuthor(id, Author):Boolean!`
 
-`deleteAuthor(…):Boolean!`
+`deleteAuthor(id):Boolean!`
 
-`addService(…):Boolean!`
+`addService(Service):Boolean!`
 
-`updateService(…):Boolean!`
+`updateService(id, Service):Boolean!`
 
-`deleteService(…):Boolean!`
+`deleteService(id):Boolean!`
+
+Note: when you add authors or services, you need to specify their id.
+Author and Service namse must be unique, so if you use the wrong id then an error will be generated.
