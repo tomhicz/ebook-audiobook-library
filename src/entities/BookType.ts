@@ -1,10 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryColumn, Column, BaseEntity } from "typeorm";
 
 @Entity()
 export class BookType extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
+  @PrimaryColumn()
   name: string;
 }

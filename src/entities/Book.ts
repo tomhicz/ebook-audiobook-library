@@ -35,11 +35,11 @@ export class Book extends BaseEntity {
   })
   isbn: string;
 
-  @ManyToMany(() => Service, {
+  @ManyToMany((type) => Service, {
     cascade: true,
   })
   @JoinTable()
-  services: [];
+  services: Service[];
 
   @ManyToOne(() => BookType, {
     cascade: true,

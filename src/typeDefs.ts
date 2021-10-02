@@ -68,11 +68,11 @@ export const typeDefs = gql`
     baseurl: String
   }
   type BookType {
-    id: Int!
     name: String!
   }
 
   input InputAuthor {
+    id: Int!
     first_name: String!
     last_name: String
   }
