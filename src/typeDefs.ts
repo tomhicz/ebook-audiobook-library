@@ -77,6 +77,7 @@ export const typeDefs = gql`
     last_name: String
   }
   input InputService {
+    id: Int!
     name: String!
     mainurl: String
     baseurl: String

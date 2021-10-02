@@ -11,11 +11,28 @@ export default class CreateUsers implements Seeder {
       .values([
         {
           title: "Lord of the Rings",
-          authors: [{ first_name: "JRR", last_name: "Tolkien" }],
+          authors: [{ id: 1, first_name: "JRR", last_name: "Tolkien" }],
           imageurl: "qwerty.com/img.png",
           isbn: "1233-456-7890",
           services: [
             {
+              id: 2,
+              name: "Audible",
+              mainurl: "audible.co.uk",
+              baseurl: "audible.co.uk/library/",
+            },
+          ],
+          booktype: { name: "audiobook" },
+          read: true,
+        },
+        {
+          title: "The Hobbit",
+          authors: [{ id: 1, first_name: "JRR", last_name: "Tolkien" }],
+          imageurl: "qwerty.com/img.png",
+          isbn: "1233-456-7890",
+          services: [
+            {
+              id: 2,
               name: "Audible",
               mainurl: "audible.co.uk",
               baseurl: "audible.co.uk/library/",

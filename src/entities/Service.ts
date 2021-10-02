@@ -1,10 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Index,
+  Column,
+  BaseEntity,
+} from "typeorm";
 
 @Entity()
 export class Service extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Index({ unique: true })
   @Column()
   name: string;
 

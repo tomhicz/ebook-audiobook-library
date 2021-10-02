@@ -1,6 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+} from "typeorm";
 
 @Entity()
+@Index(["first_name", "last_name"], { unique: true })
 export class Author extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
