@@ -59,6 +59,8 @@ Access the Apollo GraphQL interface at the address given. (Usually [http://local
 
 `books:[Book]`
 
+`booksByRead(read): [Book]`
+
 `getAuthor(id):Author`
 
 `authors:[Author]`
@@ -74,6 +76,8 @@ Access the Apollo GraphQL interface at the address given. (Usually [http://local
 `updateBook(id,Book):Boolean!`
 
 `deleteBook(id):Boolean!`
+
+`readBookToggle(id): Boolean!`
 
 `addAuthor(Author):Boolean!`
 
