@@ -32,6 +32,7 @@ export const typeDefs = gql`
       read: Boolean
     ): Boolean!
     deleteBook(id: Int!): Boolean!
+    readBookToggle(id: Int!): Boolean!
 
     addAuthor(first_name: String!, last_name: String): Boolean!
     updateAuthor(id: Int!, first_name: String, last_name: String): Boolean!

@@ -2,6 +2,7 @@ import { Book } from "./entities/Book";
 import { Author } from "./entities/Author";
 import { Service } from "./entities/Service";
 import { BookType } from "./entities/BookType";
+import { Not } from "typeorm";
 
 // Provide resolver functions for your schema fields
 export const resolvers = {
@@ -93,6 +94,19 @@ export const resolvers = {
           return false;
         }
         //return Promise.resolve(await Book.delete(args.id));
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
+    readBookToggle: async (_: any, args: any) => {
+      try {
+        await Book.createQueryBuilder("thisBook")
+          .update(Book)
+          .set({ read: () => "NOT read" })
+          .where("id = :id", { id: args.id })
+          .execute();
         return true;
       } catch (error) {
         console.log(error);
