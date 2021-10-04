@@ -5,6 +5,7 @@ export const typeDefs = gql`
   type Query {
     getBook(id: Int!): Book
     books: [Book]
+    booksByRead(read: Boolean!): [Book]
     getAuthor(id: Int!): Author
     authors: [Author]
     getService(id: Int!): Service

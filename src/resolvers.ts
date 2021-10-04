@@ -22,6 +22,14 @@ export const resolvers = {
         .leftJoinAndSelect("thisBook.booktype", "booktype")
         .getMany();
     },
+    booksByRead: async (_: any, args: any) => {
+      return await Book.createQueryBuilder("thisBook")
+        .leftJoinAndSelect("thisBook.authors", "authors")
+        .leftJoinAndSelect("thisBook.services", "services")
+        .leftJoinAndSelect("thisBook.booktype", "booktype")
+        .where("thisBook.read = :read", { read: args.read })
+        .getMany();
+    },
     //Authors
     getAuthor: async (_: any, args: any) => {
       const { id } = args;
