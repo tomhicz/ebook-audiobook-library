@@ -92,4 +92,4 @@ Access the Apollo GraphQL interface at the address given. (Usually [http://local
 `deleteService(id):Boolean!`
 
 Note: when you add authors or services, you need to specify their id.
-Author and Service namse must be unique, so if you use the wrong id then an error will be generated.
+Author and Service names must be unique, so if you use the wrong id then an error will be generated.
