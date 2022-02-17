@@ -9,7 +9,7 @@ export = {
   username: process.env.DB_USER || "ea_library",
   password: process.env.DB_PASSWORD || "ea_library",
   database: process.env.DB_NAME || "ea_library",
-  entities: ["src/entities/**/*.ts"],
+  entities: ["src/entities/**/*.ts", "./dist/entities/*.js"],
   migrations: ["src/migrations/**/*.ts"],
   seeds: ["src/seeds/**/*.ts"],
   logging: false,
