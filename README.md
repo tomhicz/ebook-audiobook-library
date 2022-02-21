@@ -4,7 +4,9 @@
 
 A CRUD API backend to store information on ebook, audiobooks, ecomics, etc.. from different services such as kindle, kobo, etc.. so that you can track your entire collection and find books across various services.
 
-## Setup:
+Demo GraphQl endpoint is deployed at: [https://ebook-audiobook-lib.herokuapp.com/](https://ebook-audiobook-lib.herokuapp.com/)
+
+## Local Setup:
 
 Clone the package and run `npm install` to install dependecies
 
@@ -36,7 +38,7 @@ Run migrations  to set up your database tables using:
 
 Seed the database using:
 
-`ss`
+`npm run seed`
 
 Access the Apollo GraphQL interface at the address given. (Usually [http://localhost:4000](http://localhost:4000))
 
