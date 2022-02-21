@@ -3,7 +3,7 @@
  */
 
 const dbURL =
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "production"
     ? process.env.DATABASE_URL
     : `postgres://${process.env.DB_USER || "ea_library"}:${
         process.env.DB_PASSWORD || "ea_library"
